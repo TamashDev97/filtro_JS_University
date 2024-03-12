@@ -1,0 +1,226 @@
+/* Fonts from google api */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+:root {
+    --clr-main: #e2740c;
+    --clr-white: #ffffff;
+    --clr-gray: #e0901f;
+    --clr-red: #961818;
+    --color-yellow: #000000;
+    --color-yelllow-hover: #d39218;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+h2, h3, h4, h5, h6, p, a, input, textarea, ul {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style-type: none;
+}
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    padding-right: 10%;
+  }
+
+a {
+    text-decoration: none;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    background-color: var(--clr-main);
+}
+
+
+aside {
+    padding: 1.5rem;
+    padding-right: 0;
+    color: var(--color-yellow);
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.boton-menu {
+    background-color: transparent;
+    border: 0;
+    color: #302a25;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-weight: 600;
+    padding: 1rem;
+    font-size: 1.5rem;
+    width: 100%;
+}
+
+.boton-menu.active {
+    background-color: var(--clr-white);
+    color: var(--clr-main);
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    position: relative;
+}
+
+.boton-menu.active::before {
+    content: '';
+    position: absolute;
+    width: 1rem;
+    height: 2rem;
+    bottom: 100%;
+    right: 0;
+    background-color: transparent;
+    border-bottom-right-radius: .5rem;
+    box-shadow: 0 1rem 0 var(--clr-white);
+}
+
+.boton-menu.active::after {
+    content: '';
+    position: absolute;
+    width: 1rem;
+    height: 2rem;
+    top: 100%;
+    right: 0;
+    background-color: transparent;
+    border-top-right-radius: .5rem;
+    box-shadow: 0 -1rem var(--clr-white);
+}
+
+
+.texto-footer {
+    color: var(--color-yellow);
+    font-size: 1rem;
+    font-style: italic;
+}
+
+main {
+    background-color: var(--clr-white);
+    margin: 1rem;
+    margin-left: 0;
+    border-radius: 2rem;
+    padding: 3rem;
+}   
+
+.titulo-principal {
+    color: var(--clr-main);
+    margin-bottom: 2rem;
+}
+
+
+.header-mobile {
+    display: none;
+}
+
+.close-menu {
+    display: none;
+}
+
+.disabled {
+    display: none;
+}
+
+
+
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 600px) {
+
+    .wrapper .header-mobile img {
+        max-width: 70%;
+        height: auto;
+        display: block;
+        margin: 0 ;
+    }
+
+    .wrapper {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+    aside img{
+        max-width: 90%;
+        height: auto;
+        display: block;
+        margin: 0;
+    }
+    aside {
+        position: fixed;
+        z-index: 9;
+        background-color: var(--clr-main);
+        left: 0;
+        box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .75);
+        transform: translateX(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: .2s;
+    }
+
+    .aside-visible {
+        transform: translateX(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .boton-menu.active::before,
+    .boton-menu.active::after {
+        display: none;
+    }
+
+    main {
+        margin: 1rem;
+        margin-top: 0;
+        padding: 2rem;
+    }
+
+
+    .header-mobile {
+        padding: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .header-mobile img {
+        padding-left: -10%;
+    }
+
+    .open-menu, .close-menu {
+        background-color: transparent;
+        color: #887766;
+        border: 0;
+        font-size: 2rem;
+        cursor: pointer;
+    }
+
+    .close-menu {
+        display: block;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+    }
+}
