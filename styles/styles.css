@@ -118,7 +118,8 @@ aside {
 }
 
 main {
-    background-color: var(--clr-white);
+    background-image: url(/resources/universidad_de_la_empresa_cover.jpeg);
+    background-size: cover;
     margin: 1rem;
     margin-left: 0;
     border-radius: 2rem;
